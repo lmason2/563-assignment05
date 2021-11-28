@@ -7,6 +7,7 @@
 
 public class GameOfLife {
     public static void main(String[] args) {
+        // Create game object to run infinite game loop
         Game curGame = new Game(50);
 
         curGame.run_game();
