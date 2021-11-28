@@ -16,12 +16,20 @@ public class Cell {
         _alive = false;
     }
 
-    public int check_neighbors(Cell[] grid) {
-        int myxcoord = _xcoord;
-        int myycoord = _ycoord;
-
-
-        return -1;
+    public int check_neighbors(Cell[][] grid) {
+        int count = 0;
+        for (int i = _xcoord - 1; i <= _xcoord + 1; i++) {
+            for (int j = _ycoord - 1; j <= _ycoord + 1; j++) {
+                if (i != _xcoord || j != _ycoord) {
+                    if (i >= 0 && i < grid.length && j >= 0 && j < grid.length) {
+                        if (grid[i][j]._alive) {
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
+        return count;
     }
 
     public String print_coords() {

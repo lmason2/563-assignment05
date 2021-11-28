@@ -9,6 +9,6 @@ public class GameOfLife {
     public static void main(String[] args) {
         Game curGame = new Game(50);
 
-        curGame.print_cells();
+        curGame.run_game();
     }
 }

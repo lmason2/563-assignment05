@@ -6,25 +6,39 @@
  */
 
 public class Game {
-    private Cell[][] _grid;
+    private Cell[][] _currGen;
     private boolean _runGame;
+    private int _dim;
 
     public Game(int dim) {
+        _dim = dim;
         _runGame = false;
-        _grid = new Cell[dim][dim];
+        _currGen = new Cell[dim][dim];
 
         for (int i = 0; i < dim; i++) {
             for (int j = 0; j < dim; j++) {
                 Cell curCell = new Cell(i, j);
-                _grid[i][j] = curCell;
+                _currGen[i][j] = curCell;
             }
         }
     }
 
+    public void run_game() {
+        for (int i = 0; i < _dim; i++) {
+            for (int j = 0; j < _dim; j++) {
+                int aliveCount = _currGen[i][j].check_neighbors(_currGen);
+                System.out.println("cell (" + i + "," + j + ") has " + aliveCount + " alive neighbors");
+            }
+        }
+        while(_runGame) {
+            // infinite game loop
+        }
+    }
+
     public void print_cells() {
-        for (int i = 0; i < _grid.length; i++) {
-            for (int j = 0; j < _grid.length; j++) {
-                System.out.println(_grid[i][j].print_coords());
+        for (int i = 0; i < _currGen.length; i++) {
+            for (int j = 0; j < _currGen.length; j++) {
+                System.out.println(_currGen[i][j].print_coords());
             }
         }
     }
