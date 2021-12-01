@@ -65,4 +65,19 @@ public class Cell {
     public int get_ycoord() {
         return _ycoord;
     }
+
+    /**
+     * Getter for _alive class variable
+     * @return boolean value of _alive
+     */
+    public boolean get_alive() { return _alive; }
+
+    /**
+     * Setter for _alive
+     * @param newAlive is the value to set _alive to
+     */
+    public void set_alive(boolean newAlive) {
+        _alive = newAlive;
+    }
+
 }
