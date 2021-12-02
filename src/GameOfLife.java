@@ -24,8 +24,8 @@ public class GameOfLife extends JPanel{
 
     public static void main(String[] args) {
         // Create game object to run infinite game loop
-        Game curGame = new Game(50);
-        curGame.run_game();
+//        Game curGame = new Game(50);
+//        curGame.run_game();
         SwingUtilities.invokeLater(GameOfLife::runGui);
     }
 
@@ -145,6 +145,9 @@ public class GameOfLife extends JPanel{
 
                     //when a start button clicked, algorithm is applied
                     start.addActionListener(e1 -> {
+                        if (generation2 == null) {
+                            generation2 = generation1;
+                        }
                         generation2 = Algorithm.newGeneration(generation2, side);
                         Grid updatedGrids = new Grid(generation2, side);
                         boardPanel.add(updatedGrids);
